@@ -1,6 +1,6 @@
 # Apress Source Code
 
-This repository accompanies [*Introducing .NET MAUI 2nd ed.*](https://www.link.springer.com/book/10.1007/979-8-8688-1189-0) by Ryan Byrnes (Apress, 2025).
+This repository accompanies [*Introducing .NET MAUI 2nd ed.*](https://www.link.springer.com/book/10.1007/979-8-8688-1189-0) by Shaun Lawrence (Apress, 2025).
 
 [comment]: #cover
 ![Cover image](979-8-8688-1188-3.jpg)
