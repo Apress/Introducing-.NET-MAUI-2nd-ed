@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"   
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"        
+    xmlns:viewModels="clr-namespace:WidgetBoard.ViewModels"
+    x:Class="WidgetBoard.Pages.SettingsPage"
+    x:DataType="viewModels:SettingsPageViewModel">
+    <VerticalStackLayout Padding="20">
+        <Label 
+            Text="Last used board"
+            VerticalOptions="Center" />
+        
+        <HorizontalStackLayout>
+            <Label 
+                Text="{Binding LastUsedBoard}"
+                MinimumWidthRequest="200"
+                VerticalOptions="Center" />
+            <Button 
+                Text="Clear"
+                Command="{Binding ClearLastUsedBoardCommand}"
+                SemanticProperties.Hint="Clears the last used board value from settings. This means the application won't automatically load a board when opened." />
+        </HorizontalStackLayout>
+        
+        <Label 
+            Text="Open Weather API token"
+            VerticalOptions="Center" />
+
+        <HorizontalStackLayout>
+            <Entry 
+                Text="{Binding OpenWeatherApiToken}"
+                MinimumWidthRequest="200"
+                IsPassword="True" />
+    
+            <Button 
+                Text="Save"
+                Command="{Binding SaveApiTokenCommand}"
+                SemanticProperties.Hint="Saves the currently entered Open Weather API token into secure storage." />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

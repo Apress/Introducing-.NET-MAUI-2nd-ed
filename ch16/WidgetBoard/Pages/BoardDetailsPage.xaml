@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModels="clr-namespace:WidgetBoard.ViewModels"
+    xmlns:behaviors="clr-namespace:WidgetBoard.Behaviors"
+    Shell.PresentationMode="ModalAnimated"
+    x:Class="WidgetBoard.Pages.BoardDetailsPage"
+    x:DataType="viewModels:BoardDetailsPageViewModel">
+    
+    <ContentPage.Resources>
+        <Style TargetType="Entry" x:Key="ValidEntryStyle">
+            <Setter Property="BackgroundColor" Value="Transparent" />
+        </Style>
+    
+        <Style TargetType="Entry" x:Key="InvalidEntryStyle">
+            <Setter Property="BackgroundColor" Value="Red" />
+        </Style>
+    </ContentPage.Resources>
+    
+    <Border
+        MinimumWidthRequest="300"
+        HorizontalOptions="Center"
+        VerticalOptions="Center"
+        Padding="0">
+        <VerticalStackLayout>
+            <VerticalStackLayout
+                Padding="20">
+                <Label
+                    Text="Enter the board name"
+                    x:Name="EnterBoardNameLabel"
+                    FontAttributes="Bold" />
+                <Entry
+                    Text="{Binding BoardName}"
+                    SemanticProperties.Description="{Binding Text, Source={x:Reference EnterBoardNameLabel}, x:DataType=Label}"
+                    SemanticProperties.Hint="Provides a name that will be used to identify your widget board. This is a required field.">
+                    <Entry.Behaviors>
+                        <behaviors:RequiredStringValidationBehavior 
+                            ValidStyle="{StaticResource ValidEntryStyle}"
+                            InvalidStyle="{StaticResource InvalidEntryStyle}" />
+                    </Entry.Behaviors>
+                </Entry>
+                <Label
+                    Text="Layout"
+                    FontAttributes="Bold" />
+                <HorizontalStackLayout>
+                    <RadioButton
+                        x:Name="FixedRadioButton"
+                        Content="Fixed"
+                        IsChecked="{Binding IsFixed}" />
+                </HorizontalStackLayout>
+                <VerticalStackLayout
+                    IsVisible="{Binding IsChecked, Source={x:Reference FixedRadioButton}, x:DataType=RadioButton}">
+
+                    <Label
+                        Text="Number of Columns"
+                        x:Name="NumberOfColumnsLabel"
+                        FontAttributes="Bold" />
+                    <Entry 
+                        Text="{Binding NumberOfColumns}"
+                        SemanticProperties.Description="{Binding Text, Source={x:Reference NumberOfColumnsLabel}, x:DataType=Label}"
+                        SemanticProperties.Hint="Determines the number of columns that will be available. This is a required field."
+                        Keyboard="Numeric" />
+                    <Label
+                        Text="Number of Rows"
+                        x:Name="NumberOfRowsLabel"
+                        FontAttributes="Bold" />
+                    <Entry 
+                        Text="{Binding NumberOfRows}"
+                        SemanticProperties.Description="{Binding Text, Source={x:Reference NumberOfRowsLabel}, x:DataType=Label}"
+                        SemanticProperties.Hint="Determines the number of rows that will be available. This is a required field."
+                        Keyboard="Numeric" />
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+            
+            <Grid ColumnDefinitions="*,*,*">
+                <Button
+                    Text="Cancel"
+                    Command="{Binding CancelCommand}"
+                    SemanticProperties.Hint="Cancels the changes and returns to the previous page." />
+    
+                <Button
+                    Text="Save"
+                    Grid.Column="2"
+                    Command="{Binding SaveCommand}"
+                    SemanticProperties.Hint="Saves the new board and returns to the previous page."/>    
+            </Grid>
+            
+        </VerticalStackLayout>
+    </Border>
+</ContentPage>

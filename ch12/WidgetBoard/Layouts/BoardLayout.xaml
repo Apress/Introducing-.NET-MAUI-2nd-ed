@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Grid
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="WidgetBoard.Layouts.BoardLayout"
+    x:Name="Self">
+
+    <Grid
+        x:Name="PlaceholderGrid" />
+
+    <Grid
+        x:Name="WidgetGrid"
+        ChildAdded="OnWidgetsChildAdded"
+        BindableLayout.ItemsSource="{Binding ItemsSource, Source={x:Reference Self}}"
+        BindableLayout.ItemTemplateSelector="{Binding ItemTemplateSelector, Source={x:Reference Self}}"
+        InputTransparent="True"
+        CascadeInputTransparent="False" />
+</Grid>

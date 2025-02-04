@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+    <TestRunParameters>
+        <Parameter name="platformName" value="Android" />
+        <Parameter name="app" value="<SOURCE_PATH>/bin/Release/net9.0-android/com.companyname.widgetboard-Signed.apk" />
+    </TestRunParameters>
+</RunSettings>

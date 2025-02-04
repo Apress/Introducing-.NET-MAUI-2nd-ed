@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+    <TestRunParameters>
+        <Parameter name="platformName" value="Windows" />
+        <Parameter name="app" value="com.companyname.widgetboard_9zz4h110yvjzm!App" />
+    </TestRunParameters>
+</RunSettings>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RunSettings>
+    <TestRunParameters>
+        <Parameter name="platformName" value="iOS" />
+        <Parameter name="platformVersion" value="17.5" />
+        <Parameter name="deviceName" value="iPhone 15 Pro" />
+        <Parameter name="app" value="com.companyname.widgetboard" />
+    </TestRunParameters>
+</RunSettings>
